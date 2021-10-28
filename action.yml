@@ -14,7 +14,7 @@ inputs:
   package-manager:
     description: 'Package manager used by the project'
     required: false
-    default: 'npm'
+    default: 'pnpm'
   build:
     description: 'Run rush build'
     required: false
