@@ -122,13 +122,10 @@ test('isValidEvent returns true for event that has a ref', () => {
 
 test('rush runners complete successfully', () => {
   const runRushInstallMock = jest.spyOn(actionUtils, 'runRushInstall')
-  const runRushBuildMock = jest.spyOn(actionUtils, 'runRushBuild')
-
+  
   actionUtils.runRushInstall()
-  actionUtils.runRushBuild()
-
+  
   expect(runRushInstallMock).toHaveBeenCalledTimes(1)
-  expect(runRushBuildMock).toHaveBeenCalledTimes(1)
 })
 
 test('get lock file for all valid types', () => {
