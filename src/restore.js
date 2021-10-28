@@ -36,12 +36,6 @@ async function run () {
       // always run rush install
       await utils.runRushInstall()
       core.info(`Cache restored from key: ${cacheKey}`)
-
-      // run rush build if specified
-      if (build) {
-        core.info(`Executing 'rush build'...`)
-        await utils.runRushBuild(build)
-      }
     } catch (error) {
       if (error.name === cache.ValidationError.name) {
         throw error
