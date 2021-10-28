@@ -59355,12 +59355,6 @@ async function run () {
       // always run rush install
       await utils.runRushInstall()
       core.info(`Cache restored from key: ${cacheKey}`)
-
-      // run rush build if specified
-      if (build) {
-        core.info(`Executing 'rush build'...`)
-        await utils.runRushBuild(build)
-      }
     } catch (error) {
       if (error.name === cache.ValidationError.name) {
         throw error
@@ -59430,10 +59424,6 @@ async function runRushInstall () {
   return exec.exec('node', ['common/scripts/install-run-rush.js', 'install'])
 }
 
-async function runRushBuild () {
-  return exec.exec('node', ['common/scripts/install-run-rush.js', 'build'])
-}
-
 function getLockFile (packageManager) {
   const packageManagers = {
     npm: 'common/config/rush/npm-shrinkwrap.json',
@@ -59460,7 +59450,6 @@ module.exports = {
   logWarning,
   isValidEvent,
   runRushInstall,
-  runRushBuild,
   generateCacheKey
 }
 
