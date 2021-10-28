@@ -32,5 +32,6 @@ content="$(cat $file)"
 echo "File content:\n$content"
 if [ -z "$(echo $content | grep --fixed-strings "$prefix $GITHUB_RUN_ID")" ]; then
   echo "Unexpected file content"
+  echo "Wanted:\n$prefix $GITHUB_RUN_ID"
   exit 1
 fi
