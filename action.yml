@@ -3,7 +3,7 @@ name: 'RushJS Helper'
 author: Martin Reynolds
 description: 'Run rush install if required and manage caching for optimal performance and incremental builds.'
 runs:
-  using: 'node14'
+  using: 'node12'
   main: 'dist/restore/index.js'
   post: 'dist/save/index.js'
   post-if: 'success()'
@@ -14,7 +14,7 @@ inputs:
   package-manager:
     description: 'Package manager used by the project'
     required: false
-    default: 'pnpm'
+    default: 'npm'
   build:
     description: 'Run rush build'
     required: false
